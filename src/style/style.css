@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    font-size: 62.5%;
+ }
+.section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+.random{
+    width: 10rem;
+    height: 6rem;
+    text-align: center;
+    margin: 1.5rem;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 1rem;
+}
+.container{
+    background:#555 ;
+    border-radius: 10rem;
+    width:40rem ;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.imgPoke{
+    display: flex;
+    justify-content: center;
+    width: 1rem;  
+}
+.img{
+    width: 100%;
+    height: 100%;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+}
+.name, .generation{
+    text-align: center;
+    font-size: large;
+    padding: 1rem;
+}
