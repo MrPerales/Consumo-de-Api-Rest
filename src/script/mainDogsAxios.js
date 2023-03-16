@@ -1,6 +1,8 @@
+///creamos la constante de la api
 const api = axios.create({
-    baseURL: 'https://api.thedogapi.com/v1'
+    baseURL: 'https://api.thedogapi.com/v1'  // colocamos la url base es decir sin ningun endpoint 
 });
+//se agrega la api key si es que no la agregaron al crear la constante api de arriba 
 api.defaults.headers.common['x-api-key'] = 'live_1knuvHYlMuFYAhN0YcjJLgAQoGmS9GOZrotiROgapSw9lWoSjTbkK1ROLCsFWCh5'
 
 
@@ -11,8 +13,10 @@ function randomDog() {
 }
 
 async function randomDogs() {
+    //       aplicamos el verbo GET con esta sintaxis api.get('endpoint')
     const { data, status } =await  api.get('/images/search?limit=2');
-
+    //con axios no necesitamos pasar la respuesta por json();
+    //nos ahorrammos lineas de codigo 
     if (status !== 200) {
         spanError.innerHTML = 'Error-- ' + status;
 
@@ -34,6 +38,7 @@ async function randomDogs() {
 }
 
 async function favoritesDogs(){
+    //       aplicamos el verbo GET con esta sintaxis api.get('endpoint')
     const {data,status}=await api.get('/favourites');
 
     console.log('favorites');
@@ -74,6 +79,8 @@ async function favoritesDogs(){
 
 
 async function saveFavoriteDog(id){
+    //       aplicamos el verbo POST con esta sintaxis api.post('endpoint',{configuracion})
+    //configuracion tambien se puede poner al momento de declarar la variable de api
     const {data,status}=await api.post('/favourites',{
         image_id:id,
     });
@@ -91,6 +98,7 @@ async function saveFavoriteDog(id){
 }
 
 async function delateFavoriteDog(id){
+    //       aplicamos el verbo DELETE con esta sintaxis api.delete('endpoint',{configuracion})
     const {data,status}=await api.delete(`/favourites/${id}`);
     console.log(data);
     if(status!==200){
